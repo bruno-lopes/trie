@@ -22,3 +22,12 @@ dependencies {
             'com.athaydes:spock-reports:1.2.7'
     )
 }
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'com.portalbll.trie.Trie'
+        )
+    }
+}
